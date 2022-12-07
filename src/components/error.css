@@ -1,0 +1,9 @@
+.errorWrapper{
+    display: flex;
+    justify-content: center;
+}
+.disc{
+    background-color: rgb(216, 216, 216);
+    border: 2px dotted red;
+    padding: 1%;
+}
