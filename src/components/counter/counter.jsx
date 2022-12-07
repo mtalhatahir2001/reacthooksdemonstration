@@ -1,7 +1,7 @@
 import React from 'react'
 import "./counter.css"
 import { useState,useEffect,useReducer} from 'react'
-import Error from './error';
+import Error from './error/error';
 
 
 
