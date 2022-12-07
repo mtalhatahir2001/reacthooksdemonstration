@@ -1,25 +1,13 @@
-import React from 'react'
-import "./counter.css"
-import { useState,useEffect,useReducer} from 'react'
-import Error from './error/error';
+import React from 'react';
+import "./counter.css";
+import { useState,useEffect,useReducer} from 'react';
+import Error from './../error/error';
+import {reducer, defaultState} from "./../../redux/reducer";
 
 
 
 
-let defaultState = {
-    isErrorDisplayed: false,
-    errorDiscription: "Limit Reached"
-}
 
-const reducer = (state, action) => {
-    if(action.type == "limit"){
-        return {...state, errorDiscription:"Limit Reached", isErrorDisplayed:true};
-    }
-    else if (action.type == "reset"){
-        return {...state, isErrorDisplayed:false};
-    }
-    return state
-}
 
 
 
