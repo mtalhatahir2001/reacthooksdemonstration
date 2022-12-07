@@ -6,12 +6,6 @@ import {reducer, defaultState} from "./../../redux/reducer";
 
 
 
-
-
-
-
-
-
 export default function Counter(){
     let [counterValue, incrementCounter] = useState(0);
     let [state, dispatch] = useReducer(reducer, defaultState);
