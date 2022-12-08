@@ -1,10 +1,13 @@
 .outerDiv{
     display: flex;
     flex-direction: row;
-    border: 2px solid black;
-    width: fit-content;
+    background-color: beige;
 }
 .image{
     height: 64px;
     width: 64px;
+    border-radius: 20px;
+}
+.name{
+    margin-left: 2%;
 }

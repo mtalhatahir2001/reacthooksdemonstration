@@ -8,3 +8,11 @@
     align-items: center;
     justify-content: center;
 }
+
+.lightBlue{
+    background-color: #add8e6;
+}
+
+button{
+    margin: 2%;
+}

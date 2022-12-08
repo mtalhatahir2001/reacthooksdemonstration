@@ -1,17 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./profile.css"
-import { useCustomHook } from "../../customHook/useCustomHook";
-
+import { UserContext } from "../../App";
 
 export default function Profile(){
-    let data = useCustomHook("https://api.github.com/users/mtalhatahir2001", "get");
+    let data = useContext(UserContext);
+    
     return <>
         <div className="outerDiv">
             <div>
-                {data && <img className= "image" src= {data.avatar_url}/>}
+                <img className= "image" src= {data && data.avatar_url}/>
             </div>
             <div className="name">
-                {data && <p>{data.name}</p>}
+                <p>{data && data.name}</p>
             </div>
         </div>
     </>
