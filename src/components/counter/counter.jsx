@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import "./counter.css";
-import { useState,useEffect,useReducer} from 'react';
+import { useState,useEffect,useReducer, useCallback} from 'react';
 import Error from './../error/error';
 import {reducer, defaultState} from "./../../redux/reducer";
 
@@ -11,10 +11,13 @@ export default function Counter(){
     let ref = useRef(null);
     let [state, dispatch] = useReducer(reducer, defaultState);
 
-    function incrementFunction(e){
+    //the useCallback hook returns the memoized function, this allow us to isolate resource intensive functions
+    //so that it will not automatically run on every render.
+    var incrementFunction = useCallback(()=>{
         if(counterValue < 3)
             incrementCounter(counterValue + 1);
-    }
+    });
+
     function changeColor(e){
         if(ref.current.classList.length == 1)
             ref.current.classList.add("lightBlue");
@@ -39,7 +42,7 @@ export default function Counter(){
             <button onClick={incrementFunction}>Increment</button>
 
             {state.isErrorDisplayed && <button onClick={()=>incrementCounter(0)}>Reset</button>}
-            
+
             <button onClick={changeColor}>Change color</button>
         </div>
         <p>The limit to the above counter is 3 try reaching it.</p>
