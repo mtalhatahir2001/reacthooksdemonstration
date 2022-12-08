@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useMemo, useRef } from 'react';
 import "./counter.css";
 import { useState,useEffect,useReducer, useCallback} from 'react';
 import Error from './../error/error';
@@ -17,6 +17,9 @@ export default function Counter(){
         if(counterValue < 3)
             incrementCounter(counterValue + 1);
     });
+    // The main difference between useCallBack and useMemo is that useMemo returns a memoized value
+    //while useCallback returns the memoized function.
+    let counterSquared = useMemo(()=>counterValue * counterValue, [counterValue]);
 
     function changeColor(e){
         if(ref.current.classList.length == 1)
@@ -39,6 +42,7 @@ export default function Counter(){
         <center>
         <div className="counterComp" ref={ref}>
             <h1>{counterValue}</h1>
+            <h1>{counterSquared}</h1>
             <button onClick={incrementFunction}>Increment</button>
 
             {state.isErrorDisplayed && <button onClick={()=>incrementCounter(0)}>Reset</button>}
